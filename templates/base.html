@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>V. Pupkin's blog</title>
+</head>
+
+<body>
+<div>
+    <header style="display: flex;">
+
+        <div style="margin-right: auto;">
+            <h1><a href="{% url 'home' %}">V. Pupkin welcomes you!</a></h1>
+        </div>
+        <div>
+            <a href="{% url 'post_create' %}">+ New Post +</a>
+        </div>
+
+    </header>
+    {% block content %}
+    {% endblock content %}
+</div>
+</body>
+
+</html>
