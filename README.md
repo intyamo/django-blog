@@ -210,6 +210,8 @@ These settings should respect environment:
 ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
 ```
 
+Refer to [`4897e92`](https://github.com/intyamo/django-blog/commit/4897e92f2eb6a5e45433577043a66cc9183035b3) if needed.
+
 8. Push to Heroku!
 
 ```shell
