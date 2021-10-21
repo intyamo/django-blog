@@ -11,6 +11,15 @@
         <div style="margin-right: auto;">
             <h1><a href="{% url 'home' %}">V. Pupkin welcomes you!</a></h1>
         </div>
+
+        <div style="margin-right: auto; text-align: center; margin: 0 auto;">
+            {% if user.is_authenticated %}
+            ☻ {{ user.username }} (<a href="{% url 'logout' %}">Log out</a>)
+            {% else %}
+            <a href=" {% url 'login' %}">Log in</a>
+            {% endif %}
+        </div>
+
         <div>
             <a href="{% url 'post_create' %}">+ New Post +</a>
         </div>
