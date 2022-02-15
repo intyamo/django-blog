@@ -2,6 +2,31 @@
 
 ## Initial setup
 
+### Poetry
+
+[poetry](https://python-poetry.org) is a useful utility to manage dependencies and virtual environments (`virtualenv`s) that we'll use. Install it following the docs: https://python-poetry.org/docs/#installation
+
+Let's start our project
+
+```sh
+mkdir my-new-cool-site
+cd my-new-cool-site
+
+# initialize a project
+poetry init
+
+# add dependencies
+poetry add django~=3.2
+
+# install dependencies
+poetry install
+
+# activate the virtual environment
+poetry shell
+```
+
+### Django project
+
 - create django project
 
 ```sh
@@ -12,6 +37,18 @@ django-admin startproject config .
 
 ```sh
 python manage.py migrate
+```
+
+### Git
+
+Of course, we'll use git to manage sources:
+
+```sh
+git init
+
+git add pyproject.toml poetry.lock config/
+
+git commit
 ```
 
 ## New App
@@ -145,7 +182,7 @@ Update templates directory in `config/settings.py`:
 ```py
 TEMPLATES = {
     # ...
-    "DIRS": [str(BASE_DIR / "templates")],
+    "DIRS": [BASE_DIR / "templates"],
     # ...
 }
 ```
@@ -165,7 +202,7 @@ You'll get a remote repository named `heroku` added to your git repo, handy!
 3. Add required dependencies
 
 ```shell
-pipenv install gunicorn dj-database-url psycopg2-binary
+poetry add gunicorn dj-database-url psycopg2-binary
 ```
 
 4. Add [`Procfile`](https://devcenter.heroku.com/articles/procfile)
